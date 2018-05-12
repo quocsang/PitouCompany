@@ -1,7 +1,7 @@
 package com.ctu.tqsang.service;
 
 import com.ctu.tqsang.dao.CategoryDAO;
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 import com.ctu.tqsang.util.StringUtil;
 
 import java.util.List;
@@ -15,17 +15,17 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryDAO categoryDAO;
     
     @Override
-    public List<Category> findAll() {
+    public List<Categoryquestion> findAll() {
         return categoryDAO.findAll();
     }
     
     @Override
-    public Category findOne(int id) {
+    public Categoryquestion findOne(int id) {
         return categoryDAO.findOne(id);
     }
     
     @Override
-    public Category findOne(String name) {
+    public Categoryquestion findOne(String name) {
         return categoryDAO.findOne(name);
     }
     
@@ -35,19 +35,19 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void create(Category category) {
+    public void create(Categoryquestion category) {
     	category.setSlug(StringUtil.slugify(category.getName()));
         categoryDAO.create(category);
     }
 
     @Override
-    public void update(Category category) {
+    public void update(Categoryquestion category) {
     	category.setSlug(StringUtil.slugify(category.getName()));
         categoryDAO.update(category);
     }
 
     @Override
-    public void delete(Category category) {
+    public void delete(Categoryquestion category) {
         categoryDAO.delete(category);
     }
 

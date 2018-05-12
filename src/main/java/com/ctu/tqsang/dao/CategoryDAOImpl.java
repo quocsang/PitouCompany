@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 
 @Repository
 @Transactional
@@ -21,7 +21,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<Category> findAll() {
+    public List<Categoryquestion> findAll() {
     	Session session = sessionFactory.getCurrentSession();
     	
     	String hql = "select distinct c " + 
@@ -32,20 +32,20 @@ public class CategoryDAOImpl implements CategoryDAO {
     }
     
     @Override
-    public Category findOne(int id) {
+    public Categoryquestion findOne(int id) {
     	Session session = sessionFactory.getCurrentSession();
-        return session.get(Category.class, id);
+        return session.get(Categoryquestion.class, id);
     }
     
     @Override
-    public Category findOne(String name) {
+    public Categoryquestion findOne(String name) {
     	Session session = sessionFactory.getCurrentSession();
     	
     	String hql = "from Category " +
     	             "where name = :name";
     	
     	try {
-    		return (Category) session.createQuery(hql)
+    		return (Categoryquestion) session.createQuery(hql)
     				.setParameter("name", name)
                     .getSingleResult();
     	} catch (NoResultException e) {
@@ -64,19 +64,19 @@ public class CategoryDAOImpl implements CategoryDAO {
     }
     
     @Override
-    public void create(Category category) {
+    public void create(Categoryquestion category) {
     	Session session = sessionFactory.getCurrentSession();
         session.persist(category);
     }
 
     @Override
-    public void update(Category category) {
+    public void update(Categoryquestion category) {
     	Session session = sessionFactory.getCurrentSession();
         session.update(category);
     }
 
     @Override
-    public void delete(Category category) {
+    public void delete(Categoryquestion category) {
     	Session session = sessionFactory.getCurrentSession();
         session.delete(category);
     }

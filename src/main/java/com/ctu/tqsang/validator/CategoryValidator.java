@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 import com.ctu.tqsang.service.CategoryService;
 
 @Component
@@ -16,15 +16,15 @@ public class CategoryValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> cls) {
-		return Category.class.isAssignableFrom(cls);
+		return Categoryquestion.class.isAssignableFrom(cls);
 	}
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		Category category = (Category) o;
+		Categoryquestion category = (Categoryquestion) o;
 		
 		// Unique category
-        Category dbCategory = categoryService.findOne(category.getName());
+        Categoryquestion dbCategory = categoryService.findOne(category.getName());
         if (dbCategory != null && dbCategory.getId() != category.getId()) {
             errors.rejectValue("name", "Unique.category.name");
         }

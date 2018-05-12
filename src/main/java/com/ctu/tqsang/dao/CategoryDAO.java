@@ -2,22 +2,22 @@ package com.ctu.tqsang.dao;
 
 import java.util.List;
 
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 
 public interface CategoryDAO {
 
-    List<Category> findAll();
+    List<Categoryquestion> findAll();
     
-    Category findOne(int id);
+    Categoryquestion findOne(int id);
     
-    Category findOne(String name);
+    Categoryquestion findOne(String name);
     
     int count();
     
-    void create(Category category);
+    void create(Categoryquestion category);
 
-    void update(Category category);
+    void update(Categoryquestion category);
 
-    void delete(Category category);
+    void delete(Categoryquestion category);
     
 }

@@ -1,6 +1,6 @@
 package com.ctu.tqsang.controller.admin;
 
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 import com.ctu.tqsang.service.CategoryService;
 import com.ctu.tqsang.service.QuestionService;
 import com.ctu.tqsang.validator.CategoryValidator;
@@ -35,7 +35,7 @@ public class AdminCategoryController {
 
     @GetMapping("/admin/category/{id}")
     public String show(@PathVariable int id, Model model) {
-        Category category = categoryService.findOne(id);
+        Categoryquestion category = categoryService.findOne(id);
         if (category == null) {
             return "404";
         } else {
@@ -46,13 +46,13 @@ public class AdminCategoryController {
 
     @GetMapping("/admin/category/add")
     public String add(Model model) {
-        model.addAttribute("category", new Category());
+        model.addAttribute("category", new Categoryquestion());
         return "category_form";
     }
     
     @GetMapping("/admin/category/{id}/edit")
     public String edit(@PathVariable int id, Model model) {
-        Category category = categoryService.findOne(id);
+        Categoryquestion category = categoryService.findOne(id);
         if (category == null) {
             return "404";
         } else {
@@ -62,7 +62,7 @@ public class AdminCategoryController {
     }
 
     @PostMapping("/admin/category/save")
-    public String save(@Valid Category category, BindingResult result,
+    public String save(@Valid Categoryquestion category, BindingResult result,
             Model model, RedirectAttributes redirect) {
     	categoryValidator.validate(category, result);
         if (result.hasErrors()) {
@@ -81,7 +81,7 @@ public class AdminCategoryController {
 
     @GetMapping("/admin/category/{id}/delete")
     public String delete(@PathVariable int id, RedirectAttributes redirect) {
-        Category category = categoryService.findOne(id);
+        Categoryquestion category = categoryService.findOne(id);
         if (category == null) {
             return "404";
         } else {

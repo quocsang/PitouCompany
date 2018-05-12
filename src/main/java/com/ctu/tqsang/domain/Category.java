@@ -1,71 +1,59 @@
 package com.ctu.tqsang.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * The persistent class for the category database table.
+ * 
+ */
 @Entity
-@Table(name = "category")
+@Table(name="category")
+@NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
 public class Category implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
-    private int id;
+	private int categoryid;
 
-    @NotEmpty
-    @Column(name = "name")
-    private String name;
+	//bi-directional many-to-one association to House
+	@OneToMany(mappedBy="category")
+	private List<House> houses;
 
-    @Column(name = "slug")
-    private String slug;
-    
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Set<Question> questions = new HashSet<>();
-    
-    public int getId() {
-        return id;
-    }
+	public Category() {
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getCategoryid() {
+		return this.categoryid;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setCategoryid(int categoryid) {
+		this.categoryid = categoryid;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public List<House> getHouses() {
+		return this.houses;
+	}
 
-    public String getSlug() {
-        return slug;
-    }
+	public void setHouses(List<House> houses) {
+		this.houses = houses;
+	}
 
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
+	public House addHous(House hous) {
+		getHouses().add(hous);
+		hous.setCategory(this);
 
-    public Set<Question> getQuestions() {
-        return questions;
-    }
+		return hous;
+	}
 
-    public void setQuestions(Set<Question> questions) {
-        this.questions = questions;
-    }
+	public House removeHous(House hous) {
+		getHouses().remove(hous);
+		hous.setCategory(null);
+
+		return hous;
+	}
 
 }

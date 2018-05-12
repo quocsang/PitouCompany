@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ctu.tqsang.domain.Answer;
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 import com.ctu.tqsang.domain.CustomUserDetails;
 import com.ctu.tqsang.domain.Question;
 import com.ctu.tqsang.service.CategoryService;
@@ -73,10 +73,10 @@ public class AppQuestionController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Category.class, "category", new PropertyEditorSupport() {
+        binder.registerCustomEditor(Categoryquestion.class, "category", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
-                Category category = categoryService.findOne(Integer.parseInt(text));
+                Categoryquestion category = categoryService.findOne(Integer.parseInt(text));
                 setValue(category);
             }
         });

@@ -63,7 +63,7 @@ public class Question implements Serializable {
     private User user;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    private Category category;
+    private Categoryquestion category;
     
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY)
@@ -152,11 +152,11 @@ public class Question implements Serializable {
         this.user = user;
     }
 
-    public Category getCategory() {
+    public Categoryquestion getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(Categoryquestion category) {
         this.category = category;
     }
 

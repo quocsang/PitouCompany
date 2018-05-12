@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ctu.tqsang.domain.Category;
+import com.ctu.tqsang.domain.Categoryquestion;
 import com.ctu.tqsang.service.CategoryService;
 import com.ctu.tqsang.service.QuestionService;
 import com.ctu.tqsang.service.TagService;
@@ -35,9 +35,9 @@ public class AppCategoryController {
 	@GetMapping("/category/{id}/{slug}")
     public String category(Model model, @PathVariable String slug, @PathVariable int id) {
         // Check category exist
-        List<Category> categories = categoryService.findAll();
-        Category currentCategory = null;
-        for (Category category : categories) {
+        List<Categoryquestion> categories = categoryService.findAll();
+        Categoryquestion currentCategory = null;
+        for (Categoryquestion category : categories) {
             if (category.getId() == id) {
                 currentCategory = category;
                 break;
