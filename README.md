@@ -1,4 +1,4 @@
-## Spring AskMe &copy; 2017. Version 3
+## Website forum PitouCompany
 
 ### Features:
 #### Admin:
