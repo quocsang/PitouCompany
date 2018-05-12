@@ -2,7 +2,9 @@ package com.ctu.tqsang.domain;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +19,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import org.hibernate.validator.constraints.*;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.ctu.tqsang.util.Const;
 
@@ -29,6 +34,7 @@ public class User implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="userid")
     private int id;
 
 //    @NotEmpty
@@ -37,7 +43,7 @@ public class User implements Serializable {
 
     @NotEmpty
     @Email
-    @Column(name = "email")
+    @Column(name = "username")
     private String email;
 
     @NotEmpty
@@ -49,16 +55,16 @@ public class User implements Serializable {
     @NotEmpty
     private String confirmPassword;
 
-    @Column(name = "avatar", nullable = true)
+    @Column(name = "image", nullable = true)
     private String avatar = Const.DEFAULT_AVATAR;
 
     @Column(name = "point", nullable = true)
     private int point = Const.INIT_POINT;
     
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role", 
-	    joinColumns = { @JoinColumn(name = "user_id") }, 
-	    inverseJoinColumns = { @JoinColumn(name = "role_id") }
+    @JoinTable(name = "userrole", 
+	    joinColumns = { @JoinColumn(name = "userid") }, 
+	    inverseJoinColumns = { @JoinColumn(name = "roleid") }
     )
     private Set<Role> roles = new HashSet<>();
     
@@ -68,6 +74,15 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Answer> answers = new HashSet<>();
+    
+    //Custom Edit
+  //bi-directional many-to-one association to Customer
+  	@OneToMany(mappedBy="user")
+  	private List<Customer> customers;
+
+  	//bi-directional many-to-one association to Employee
+  	@OneToMany(mappedBy="user")
+  	private List<Employee> employees;
     
     public User() {
     	roles.add(new Role("ROLE_MEMBER"));
@@ -161,5 +176,21 @@ public class User implements Serializable {
     public void setAnswers(Set<Answer> answers) {
         this.answers = answers;
     }
+
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
 
 }

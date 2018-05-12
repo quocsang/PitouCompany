@@ -21,12 +21,12 @@ public class Propertydetail implements Serializable {
 
 	//bi-directional many-to-one association to Property
 	@ManyToOne
-	@JoinColumn(name="propertyid")
+	@JoinColumn(name="propertyid",insertable =  false, updatable = false)
 	private Property property;
 
 	//bi-directional many-to-one association to House
 	@ManyToOne
-	@JoinColumn(name="houseid")
+	@JoinColumn(name="houseid",insertable =  false, updatable = false)
 	private House house;
 
 	public Propertydetail() {

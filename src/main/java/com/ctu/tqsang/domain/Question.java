@@ -34,7 +34,7 @@ public class Question implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "questionid")
     private int id;
 
     @NotEmpty
@@ -49,31 +49,33 @@ public class Question implements Serializable {
     private String content;
     
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at")
+    @Column(name = "createdat")
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
+    @Column(name = "updatedat")
     private Date updatedAt;
 
     @Column(name = "views")
     private int views = 0;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="userid")
     private User user;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    private Categoryquestion category;
+    @JoinColumn(name="cqid")
+    private Categoryquestion categoryquestion;
     
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "question_tag", 
-             joinColumns = { @JoinColumn(name = "question_id") }, 
-             inverseJoinColumns = { @JoinColumn(name = "tag_id") })
+    @JoinTable(name = "questiontag", 
+             joinColumns = { @JoinColumn(name = "questionid") }, 
+             inverseJoinColumns = { @JoinColumn(name = "tagid") })
     private Set<Tag> tags = new HashSet<>();
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @OrderBy("is_best DESC")
+    @OrderBy("isbest DESC")
     private Set<Answer> answers = new HashSet<>();
     
     public int getId() {
@@ -153,11 +155,11 @@ public class Question implements Serializable {
     }
 
     public Categoryquestion getCategory() {
-        return category;
+        return categoryquestion;
     }
 
     public void setCategory(Categoryquestion category) {
-        this.category = category;
+        this.categoryquestion = category;
     }
 
     public Set<Tag> getTags() {

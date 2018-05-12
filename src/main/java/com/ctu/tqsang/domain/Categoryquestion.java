@@ -16,14 +16,14 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "category")
+@Table(name = "categoryquestion")
 public class Categoryquestion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "cqid")
     private int id;
 
     @NotEmpty
@@ -33,7 +33,7 @@ public class Categoryquestion implements Serializable {
     @Column(name = "slug")
     private String slug;
     
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "categoryquestion", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE) //category la bien Categoryquestion ben Question
     private Set<Question> questions = new HashSet<>();
     
     public int getId() {

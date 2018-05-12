@@ -25,7 +25,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     	Session session = sessionFactory.getCurrentSession();
     	
     	String hql = "select distinct c " + 
-    				 "from Category c " +
+    				 "from Categoryquestion c " +
     				 "left join fetch c.questions";
     	
     	return session.createQuery(hql).getResultList();

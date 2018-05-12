@@ -104,18 +104,18 @@ public class Employee implements Serializable {
 		this.news = news;
 	}
 
-	public News addNew(News new) {
-		getNews().add(new);
-		new.setEmployee(this);
+	public News addNew(News news) {
+		getNews().add(news);
+		news.setEmployee(this);
 
-		return new;
+		return news;
 	}
 
-	public News removeNew(News new) {
-		getNews().remove(new);
-		new.setEmployee(null);
+	public News removeNew(News news) {
+		getNews().remove(news);
+		news.setEmployee(null);
 
-		return new;
+		return news;
 	}
 
 }

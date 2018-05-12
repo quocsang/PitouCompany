@@ -91,7 +91,7 @@ public class AdminUserController {
         	userService.update(user, role);
         }
         
-        redirect.addFlashAttribute("success", "Saved user " + user.getName() + " successfully!");
+        redirect.addFlashAttribute("success", "Saved user " + user.getId() + " successfully!");
         return "redirect:/admin/user";
     }
 
@@ -105,7 +105,7 @@ public class AdminUserController {
                 redirect.addFlashAttribute("error", "Can not delete this user!");
             } else {
                 userService.delete(user);
-                redirect.addFlashAttribute("success", "Delete user " + user.getName() + " successfully!");
+                redirect.addFlashAttribute("success", "Delete user " + user.getId() + " successfully!");
             }
             return "redirect:/admin/user";
         }

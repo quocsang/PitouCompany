@@ -44,7 +44,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	String hql = "select q " +
     				 "from Question q " +
     				 "left join fetch q.user " +
-    				 "left join fetch q.category " +
+    				 "left join fetch q.categoryquestion " +
     				 "left join fetch q.answers " +
     				 "order by q.id desc";
     	
@@ -62,7 +62,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	String hql = "select q " +
 					 "from Question q " +
 					 "left join fetch q.user " +
-					 "left join fetch q.category " +
+					 "left join fetch q.categoryquestion " +
 					 "left join fetch q.answers " +
     				 "order by q.views desc";
     	
@@ -80,7 +80,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	CriteriaQuery<Question> criteria = builder.createQuery(Question.class);
     	Root<Question> root = criteria.from(Question.class);
     	root.fetch("user", JoinType.LEFT);
-    	root.fetch("category", JoinType.LEFT);
+    	root.fetch("categoryquestion", JoinType.LEFT);
     	root.fetch("answers", JoinType.LEFT);
     	criteria.select(root);
     	criteria.where(builder.isEmpty(root.get("answers")));
@@ -100,7 +100,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	
     	String hql = "select distinct q " +
     				 "from Question q " +
-					 "left join fetch q.category " +
+					 "left join fetch q.categoryquestion " +
 					 "left join fetch q.tags " +
 					 "left join fetch q.answers " +
     				 "where q.user.id = :uid " +
@@ -120,7 +120,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     				 "from Question q " +
     				 "left join fetch q.user " +
 					 "left join fetch q.answers " +
-    				 "where q.category.id = :cid " +
+    				 "where q.categoryquestion.id = :cid " +
     				 "order by q.id desc";
     	
         return session.createQuery(hql)
@@ -136,7 +136,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	String hql = "select distinct q " +
 				 	 "from Question q " +
 				 	 "left join fetch q.user " +
-				 	 "left join fetch q.category c " +
+				 	 "left join fetch q.categoryquestion c " +
 					 "left join fetch q.answers " +
 				 	 "where c.id = :cid " +
 				 	 "order by q.id desc";
@@ -175,7 +175,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	String hql = "select distinct q " +
 				 	 "from Question q " +
 				 	 "left join fetch q.user " +
-					 "left join fetch q.category " +
+					 "left join fetch q.categoryquestion " +
 					 "left join fetch q.tags t " +
 					 "left join fetch q.answers " +
 				 	 "where t.name = :name " +
@@ -196,7 +196,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	String hql = "select distinct q " +
 			 	 	 "from Question q " +
 			 	 	 "left join fetch q.user " +
-			 	 	 "left join fetch q.category " +
+			 	 	 "left join fetch q.categoryquestion " +
 			 	 	 "left join fetch q.answers " +
     				 "where q.title like :q";
     	
@@ -214,7 +214,7 @@ public class QuestionDAOImpl implements QuestionDAO {
     	String hql = "select q " +
     				 "from Question q " +
     				 "left join fetch q.user " +
-    				 "left join fetch q.category " +
+    				 "left join fetch q.categoryquestion " +
     				 "left join fetch q.tags " +
     				 "left join fetch q.answers a " +
     				 "left join fetch a.user " +

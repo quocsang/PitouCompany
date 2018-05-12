@@ -1,6 +1,8 @@
 package com.ctu.tqsang.domain;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,14 +20,15 @@ public class Vote implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="voteid")
     private int id;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "answer_id")
+    @JoinColumn(name = "answerid")
     private Answer answer;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid")
     private User user;
 
     public Vote() {

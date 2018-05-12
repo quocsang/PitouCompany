@@ -22,7 +22,7 @@ public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "roleid")
     private int id;
 
     @Column(name = "name")

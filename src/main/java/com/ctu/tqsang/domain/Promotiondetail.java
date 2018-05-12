@@ -21,12 +21,12 @@ public class Promotiondetail implements Serializable {
 
 	//bi-directional many-to-one association to Promotion
 	@ManyToOne
-	@JoinColumn(name="promotionid")
+	@JoinColumn(name="promotionid",insertable =  false, updatable = false)
 	private Promotion promotion;
 
 	//bi-directional many-to-one association to House
 	@ManyToOne
-	@JoinColumn(name="houseid")
+	@JoinColumn(name="houseid",insertable =  false, updatable = false)
 	private House house;
 
 	public Promotiondetail() {
