@@ -122,7 +122,7 @@
     </a>
   </div>
   <div class="author-bio">
-    <h4>${question.user.name}</h4>
+    <h4>${question.user.id}</h4>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
   </div>
 </div><!-- End about-author -->
@@ -137,7 +137,7 @@
           <div class="comment-text">
             <div class="author clearfix">
               <div class="comment-author">
-                <a href="<c:url value="/user/${answer.user.id}" />">${answer.user.name}</a>
+                <a href="<c:url value="/user/${answer.user.id}" />">${answer.user.id}</a>
               </div>
               <span class="single-question-vote-result" id="answer-votes-${answer.id}">${answer.votes} like</span>
               <ul class="single-question-vote">

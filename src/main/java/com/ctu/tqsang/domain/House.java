@@ -50,7 +50,7 @@ public class House implements Serializable {
 	//bi-directional many-to-one association to Category
 	@ManyToOne
 	@JoinColumn(name="categoryid")
-	private Category category;
+	private Categoryhouse categoryhouse;
 
 	//bi-directional many-to-many association to Picture
 	@ManyToMany(mappedBy="houses")
@@ -139,12 +139,12 @@ public class House implements Serializable {
 		this.project = project;
 	}
 
-	public Category getCategory() {
-		return this.category;
+	public Categoryhouse getCategory() {
+		return this.categoryhouse;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategory(Categoryhouse category) {
+		this.categoryhouse = category;
 	}
 
 	public List<Picture> getPictures() {

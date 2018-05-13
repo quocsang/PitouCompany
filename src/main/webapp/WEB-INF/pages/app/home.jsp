@@ -17,7 +17,7 @@
               <a href="<c:url value="/question/${question.id}/${question.slug}" />">${question.title}</a>
             </h2>
             <div class="question-author">
-              <a href="<c:url value="/user/${question.user.id}" />" title="${question.user.name}" class="question-author-img tooltip-n">
+              <a href="<c:url value="/user/${question.user.id}" />" title="${question.user.id}" class="question-author-img tooltip-n">
                 <span></span><img alt="" src="<c:url value="/upload/${question.user.avatar}" />">
               </a>
             </div>
@@ -62,7 +62,7 @@
             <a href="<c:url value="/question/${question.id}/${question.slug}" />">${question.title}</a>
           </h2>
           <div class="question-author">
-            <a href="<c:url value="/user/${question.user.id}" />" title="${question.user.name}" class="question-author-img tooltip-n">
+            <a href="<c:url value="/user/${question.user.id}" />" title="${question.user.id}" class="question-author-img tooltip-n">
               <span></span><img alt="" src="<c:url value="/upload/${question.user.avatar}" />">
             </a>
           </div>
@@ -107,7 +107,7 @@
             <a href="<c:url value="/question/${question.id}/${question.slug}" />">${question.title}</a>
           </h2>
           <div class="question-author">
-            <a href="<c:url value="/user/${question.user.id}" />" title="${question.user.name}" class="question-author-img tooltip-n">
+            <a href="<c:url value="/user/${question.user.id}" />" title="${question.user.id}" class="question-author-img tooltip-n">
               <span></span><img alt="" src="<c:url value="/upload/${question.user.avatar}" />">
             </a>
           </div>

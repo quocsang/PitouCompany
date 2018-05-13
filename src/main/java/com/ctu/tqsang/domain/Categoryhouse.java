@@ -10,28 +10,28 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="category")
-@NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
-public class Category implements Serializable {
+@Table(name="categoryhouse")
+@NamedQuery(name="Categoryhouse.findAll", query="SELECT c FROM Categoryhouse c")
+public class Categoryhouse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int categoryid;
+	private int chid;
 
 	//bi-directional many-to-one association to House
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="categoryhouse")
 	private List<House> houses;
 
-	public Category() {
+	public Categoryhouse() {
 	}
 
 	public int getCategoryid() {
-		return this.categoryid;
+		return this.chid;
 	}
 
 	public void setCategoryid(int categoryid) {
-		this.categoryid = categoryid;
+		this.chid = categoryid;
 	}
 
 	public List<House> getHouses() {

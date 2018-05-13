@@ -12,7 +12,7 @@
       <p class="login-box-msg">Create new account</p>
       <c:url value="/register" var="action" />
       <form:form action="${action}" method="POST" modelAttribute="user">
-        <div class="form-group has-feedback">
+        <%-- <div class="form-group has-feedback">
           <form:input path="name" cssClass="form-control" placeholder="Name" />
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
           <c:set var="nameErrors"><form:errors path="name"/></c:set>
@@ -22,7 +22,7 @@
               <form:errors path="name" delimiter="<br><i class='fa fa-exclamation-circle'></i> " />
             </div>
           </c:if>
-        </div>
+        </div> --%>
         <div class="form-group has-feedback">
           <form:input path="email" cssClass="form-control" placeholder="Email" />
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
