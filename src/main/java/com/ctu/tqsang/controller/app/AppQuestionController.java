@@ -99,7 +99,10 @@ public class AppQuestionController {
         if (result.hasErrors()) {
             return "question_form";
         }
-
+        System.out.println("AppQuestionController: " + question.getTitle());
+        
+        System.out.println("AppQuestionController: " + question.getContent());
+        
         questionService.create(question);
 
         redirect.addFlashAttribute("success", "Your question has been posted successfully!");

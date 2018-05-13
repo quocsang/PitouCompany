@@ -57,8 +57,6 @@ public class AppAnswerController {
         model.addAttribute("tags", tagService.findAllApp());
         model.addAttribute("question", question);
         
-        System.out.println("AppAnswerControll: " + answer.getContent());
-        
         if (result.hasErrors()) {
             redirect.addFlashAttribute("error", "Answer content is required");
         } else {

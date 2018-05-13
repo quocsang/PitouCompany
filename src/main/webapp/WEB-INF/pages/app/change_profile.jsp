@@ -12,7 +12,7 @@
       <form:hidden path="avatar" />
       <form:hidden path="point" />
       <div class="form-inputs clearfix">
-        <p>
+        <%-- <p>
           <label class="required">Name <span>*</span></label>
           <form:input path="name" />
           <c:set var="nameErrors"><form:errors path="name"/></c:set>
@@ -20,7 +20,7 @@
             <i class="icon-exclamation-sign"></i> 
             <form:errors path="name" delimiter="<br><i class='icon-exclamation-sign'></i> " cssClass="field-error" />
           </c:if>
-        </p>
+        </p> --%>
 
         <p>
           <label class="required">Email <span>*</span></label>

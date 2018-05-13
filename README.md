@@ -1,36 +1,36 @@
-## Website forum PitouCompany
+## Trang Web dien dan cho PitouCompany
 
-### Features:
-#### Admin:
-- Dashboard: count all current users, questions, categories, tags. Show newest users and questions.
-- User Manager: list, create, update, delete, show profile.
-- Question Manager: list, view detail, delete.
-- Category Manager: list, create, update, delete, show questions.
-- Tag Manager: list, create, update, delete, show questions.
-- Answer Manager: delete.
+### Tinh nang, dac diem:
+#### Quản trị viên:
+- Bảng điều khiển: đếm tất cả người dùng hiện tại, câu hỏi, danh mục, thẻ. Hiển thị người dùng và câu hỏi mới nhất.
+- Quản lý người dùng: danh sách, tạo, cập nhật, xóa, hiển thị hồ sơ.
+- Người quản lý câu hỏi: danh sách, xem chi tiết, xóa.
+- Quản lý danh mục: danh sách, tạo, cập nhật, xóa, hiển thị câu hỏi.
+- Trình quản lý thẻ: danh sách, tạo, cập nhật, xóa, hiển thị câu hỏi.
+- Trình quản lý trả lời: xóa.
 
-#### App:
-- Security: register, login, logout, authorization.
-- Pages: home, category, tag, search.
-- Question: ask and view details.
-- Answer: post answer, choose best answer, like/dislike answer.
-- Profile: view profile, change profile, upload avatar.
-- Rank: sort by point.
+#### Ứng dụng:
+- Bao mat: dang ky, dang nhap, dang xuat, uy quyen
+- Trang: trang chu, danh muc, the tim kiem.
+- Cau hoi: cau hoi va xem chi tiet.
+- Trả lời: đăng câu trả lời, chọn câu trả lời hay nhất, thích / không thích câu trả lời.
+- Hồ sơ: xem hồ sơ, thay đổi hồ sơ, tải lên avatar.
+- Xếp hạng: sắp xếp theo điểm.
 
-### Technologies
+### Cong nghe su dung
 #### Java framework
 - Spring Framework (Spring MVC v4, Spring Security)
 
-#### Database
+#### Co so du lieu
 - DBMS: MySQL
 - ORM Framework: Hibernate v5
 
-#### View technologies
+#### Giao dien hien thi
 - HTML, CSS
 - JavaScript, jQuery, AJAX
 - JSP, JSTL
 
-### Tools
+### Phan mem
 - Ubuntu 16.04 LTS
 - Eclipse Neon
 - Maven 3

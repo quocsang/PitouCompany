@@ -6,9 +6,9 @@
   <div class="user-profile">
     <div class="col-md-12">
       <div class="page-content">
-        <h2>About ${user.name}</h2>
+        <h2>About ${user.id}</h2>
         <div class="user-profile-img">
-          <img width="60" height="60" src="<c:url value="/upload/${user.avatar}" />" alt="${user.name}">
+          <img width="60" height="60" src="<c:url value="/upload/${user.avatar}" />" alt="${user.id}">
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. Donec congue commodo mi, sed commodo velit fringilla ac. Fusce placerat venenatis mi. Pellentesque habitant morbi tristique senectus et netus et malesuada .</p>
         <div class="clearfix"></div>
