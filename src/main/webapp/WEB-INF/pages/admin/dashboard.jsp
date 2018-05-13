@@ -97,7 +97,7 @@
                 <c:forEach var="question" items="${newQuestions}">
                     <tr>
                       <td><a href="<c:url value="/admin/question/${question.id}" />">${question.shortTitle}</a></td>
-                      <td><a href="<c:url value="/admin/user/${question.user.id}" />">${question.user.name}</a></td>
+                      <td><a href="<c:url value="/admin/user/${question.user.id}" />">${question.user.id}</a></td>
                     </tr>
                 </c:forEach>
               </tbody>
@@ -126,7 +126,7 @@
             <c:forEach var="user" items="${newUsers}">
             <li>
               <img src="<c:url value="/upload/${user.avatar}" />" alt="User Image">
-              <a class="countUsers-list-name" href="<c:url value="/admin/user/${user.id}" />">${user.name}</a>
+              <a class="countUsers-list-name" href="<c:url value="/admin/user/${user.id}" />">${user.id}</a>
             </li>
             </c:forEach>
           </ul>

@@ -48,21 +48,21 @@ public class AppAnswerController {
     @Autowired
     private VoteService voteService;
 	
-	@PostMapping("/question/{id}/answer/post")
-    public String post(@Valid Answer answer, @PathVariable("id") int id, BindingResult result, 
+	@PostMapping("/question/{idqs}/answer/post")
+    public String post(@Valid Answer answer, @PathVariable("idqs") int idqs, BindingResult result, 
     		Model model, RedirectAttributes redirect) {
-        Question question = questionService.findOne(id);
+        Question question = questionService.findOne(idqs);
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("topUsers", userService.findTopPoint(5));
         model.addAttribute("tags", tagService.findAllApp());
         model.addAttribute("question", question);
         
+        System.out.println("AppAnswerControll: " + answer.getContent());
+        
         if (result.hasErrors()) {
             redirect.addFlashAttribute("error", "Answer content is required");
         } else {
         	answer.setQuestion(question);
-        	
-        	System.out.println(answer.toString());
             answerService.create(answer);
             redirect.addFlashAttribute("success", "Your answer posted");
         }

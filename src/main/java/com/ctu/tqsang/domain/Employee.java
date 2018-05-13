@@ -22,12 +22,12 @@ public class Employee implements Serializable {
 	private String type;
 
 	//bi-directional many-to-one association to Person
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="personid")
 	private Person person;
 
 	//bi-directional many-to-one association to User
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="userid")
 	private User user;
 

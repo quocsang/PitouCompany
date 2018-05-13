@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -77,12 +78,12 @@ public class User implements Serializable {
     
     //Custom Edit
   //bi-directional many-to-one association to Customer
-  	@OneToMany(mappedBy="user")
-  	private List<Customer> customers;
+  	@OneToOne(mappedBy="user")
+  	Customer customers;
 
   	//bi-directional many-to-one association to Employee
-  	@OneToMany(mappedBy="user")
-  	private List<Employee> employees;
+  	@OneToOne(mappedBy="user")
+  	Employee employees;
     
     public User() {
     	roles.add(new Role("ROLE_MEMBER"));
@@ -177,20 +178,22 @@ public class User implements Serializable {
         this.answers = answers;
     }
 
-	public List<Customer> getCustomers() {
+	public Customer getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(List<Customer> customers) {
+	public void setCustomers(Customer customers) {
 		this.customers = customers;
 	}
 
-	public List<Employee> getEmployees() {
+	public Employee getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(List<Employee> employees) {
+	public void setEmployees(Employee employees) {
 		this.employees = employees;
 	}
+
+	
 
 }

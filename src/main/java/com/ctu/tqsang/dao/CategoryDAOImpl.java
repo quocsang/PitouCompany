@@ -41,7 +41,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     public Categoryquestion findOne(String name) {
     	Session session = sessionFactory.getCurrentSession();
     	
-    	String hql = "from Category " +
+    	String hql = "from Categoryquestion " +
     	             "where name = :name";
     	
     	try {
@@ -58,7 +58,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     	Session session = sessionFactory.getCurrentSession();
     	
     	String hql = "select count(*) " + 
-            	     "from Category";
+            	     "from Categoryquestion";
     	
         return ((Number) session.createQuery(hql).getSingleResult()).intValue();
     }

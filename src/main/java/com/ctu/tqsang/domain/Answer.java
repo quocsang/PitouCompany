@@ -42,11 +42,11 @@ public class Answer implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="userid")
     private User user;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="questionid")
     private Question question;
     

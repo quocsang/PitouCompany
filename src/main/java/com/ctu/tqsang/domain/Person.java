@@ -34,12 +34,12 @@ public class Person implements Serializable {
 	private String phone;
 
 	//bi-directional many-to-one association to Customer
-	@OneToMany(mappedBy="person")
-	private List<Customer> customers;
+	@OneToOne(mappedBy="person")
+	private Customer customers;
 
 	//bi-directional many-to-one association to Employee
-	@OneToMany(mappedBy="person")
-	private List<Employee> employees;
+	@OneToOne(mappedBy="person")
+	private Employee employees;
 
 	//bi-directional many-to-one association to Address
 	@ManyToOne
@@ -113,49 +113,6 @@ public class Person implements Serializable {
 		this.phone = phone;
 	}
 
-	public List<Customer> getCustomers() {
-		return this.customers;
-	}
-
-	public void setCustomers(List<Customer> customers) {
-		this.customers = customers;
-	}
-
-	public Customer addCustomer(Customer customer) {
-		getCustomers().add(customer);
-		customer.setPerson(this);
-
-		return customer;
-	}
-
-	public Customer removeCustomer(Customer customer) {
-		getCustomers().remove(customer);
-		customer.setPerson(null);
-
-		return customer;
-	}
-
-	public List<Employee> getEmployees() {
-		return this.employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-	public Employee addEmployee(Employee employee) {
-		getEmployees().add(employee);
-		employee.setPerson(this);
-
-		return employee;
-	}
-
-	public Employee removeEmployee(Employee employee) {
-		getEmployees().remove(employee);
-		employee.setPerson(null);
-
-		return employee;
-	}
 
 	public Address getAddress() {
 		return this.address;
