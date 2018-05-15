@@ -183,4 +183,9 @@
         <put-attribute name="main" value="/WEB-INF/pages/admin/question_detail.jsp" />  
     </definition>  
     
+    <definition name="testcode" extends="security-definition">  
+        <put-attribute name="title" value="Ask Me | Testcode" />  
+        <put-attribute name="main" value="/WEB-INF/pages/app/testcode.jsp" />  
+    </definition>
+    
 </tiles-definitions>
