@@ -13,7 +13,7 @@
         <sec:authorize access="isAuthenticated()">
           <sec:authentication var="principal" property="principal" />
           <c:set var="user" value="${principal.getUser()}" />
-          <li><a href="<c:url value="/user/${user.id}" />">Hello, <strong>${user.id}</strong></a></li>
+          <li><a href="<c:url value="/user/${user.id}" />">Hello, <strong>${user.name}</strong></a></li>
           <li><a href="<c:url value="/logout" />">Logout</a></li>
         </sec:authorize>
       </ul>

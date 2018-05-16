@@ -13,9 +13,9 @@
               <span>Address :</span> CTUT, CanTho, Vietnam
             </li>
             <li>
-              <span>Support :</span>Phone : (+84) 01111011110
+              <span>Support :</span>Phone : (+84) 1264889593
             </li>
-            <li>Email : askme@gmail.com</li>
+            <li>Email : tranquocsang28@gmail.com</li>
           </ul>
         </div>
       </div>
@@ -56,7 +56,7 @@
 </footer><!-- End footer -->
 <footer id="footer-bottom">
   <section class="container">
-    <div class="copyrights f_left">Copyright © 2018 ASK me . All rights reserved.</div>
+    <div class="copyrights f_left">Copyright © 2018 Pitou Company . All rights reserved.</div>
     <div class="social_icons f_right">
       <ul>
         <li class="twitter"><a title="Twitter" href="#"><i class="social_icon-twitter font17"></i></a></li>

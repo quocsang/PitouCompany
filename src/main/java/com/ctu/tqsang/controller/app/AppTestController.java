@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ctu.tqsang.domain.Customer;
+import com.ctu.tqsang.domain.FormRegister;
 import com.ctu.tqsang.domain.User;
 import com.ctu.tqsang.service.UserService;
 import com.ctu.tqsang.validator.UserValidator;
@@ -29,7 +31,17 @@ public class AppTestController {
 	 
 	 @GetMapping("/testcode")
 	 public String getRegister(Model model) {
-	        model.addAttribute("user", new User());
+	        model.addAttribute("formregister", new FormRegister());
+	        
+	        Customer customer = new Customer();
+	        
+	        
+	        User user = new User();
+	        user.setEmail("useremail@gmail.com");
+	        user.setPassword("123456");
+	       
+	        
+	        
 	        return "testcode";
 	    }
 

@@ -26,7 +26,7 @@
           <img width="60" height="60" src="<c:url value="/upload/${topUser.avatar}" />" alt="">
         </a>
       </div> 
-      <h6><a href="<c:url value="/user/${topUser.id}" />">${topUser.id}</a></h6>
+      <h6><a href="<c:url value="/user/${topUser.id}" />">${topUser.name}</a></h6>
       <span class="comment">${topUser.point} point</span>
     </li>
     </c:forEach>

@@ -38,9 +38,9 @@ public class User implements Serializable {
 	@Column(name="userid")
     private int id;
 
-//    @NotEmpty
-//    @Column(name = "name")
-//    private String name;
+    @NotEmpty
+    @Column(name = "name")
+    private String name;
 
     @NotEmpty
     @Email
@@ -97,13 +97,13 @@ public class User implements Serializable {
         this.id = id;
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;

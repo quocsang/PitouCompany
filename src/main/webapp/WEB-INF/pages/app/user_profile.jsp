@@ -6,7 +6,7 @@
   <div class="user-profile">
     <div class="col-md-12">
       <div class="page-content">
-        <h2>About ${user.id}</h2>
+        <h2>About ${user.name}</h2>
         <div class="user-profile-img">
           <img width="60" height="60" src="<c:url value="/upload/${user.avatar}" />" alt="${user.id}">
         </div>
